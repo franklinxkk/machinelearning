@@ -16,7 +16,7 @@ def get_best_cluster(x):
 		kmeans = KMeans(n_clusters = i, random_state=123).fit(x)
 		score = fowlkes_mallows_score(iris['target'], kmeans.labels_) # 实际分类与预测分类比较，计算得分
 		scores.append(score)
-		print('iris数据聚{0}类FMI评价分值为：{1},SSE评分为:{2}'.format(str(i),str(score),str(kmeans.inertia_)))
+		print('iris数据聚{0}类FMI评价分值为：{1},SSE评分为:{2}'.format(str(i),str(score),str(kmeans.inertia_))) # SSE 作为辅助评分
 
 	# 根据真实值评分，分3类的FMI评价最高，则最终非监督聚类3堆最合适
 	max_score_index = scores.index(max(scores))
